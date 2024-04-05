@@ -5,9 +5,10 @@ function validdata() {
 
    if(squestion!==getsquestion ){
        document.getElementById("error").innerHTML="YOUR SECURITY WORD IS WRONG ! SORRY..........."
+       document.getElementById("error").style.color="red";
     }else{
         document.getElementById("error").innerHTML="YOUR PASSWORD IS:   " + pass
-        
+        document.getElementById("error").style.color="red";
     }
     
 
@@ -30,11 +31,13 @@ function changepassword(){
     
     if(email!==getemail ){
         document.getElementById("error2").innerHTML="YOUR EMAIL ID IS NOT REGISTERD! SORRY..........."
-     }else if(newpass!==reenterpass){
-        document.getElementById("error2").innerHTML="PASSWORD IS NOT SAME"
-     }else{
-        localStorage.setItem("password",newpass)
-        window.location.href="login.html"
+        document.getElementById("error2").style.color="red";
+     }else if(newpass==reenterpass && newpass!==""){
+         localStorage.setItem("password",newpass)
+         window.location.href="login.html"
+        }else{
+         document.getElementById("error2").innerHTML="PASSWORD IS NOT SAME"
+         document.getElementById("error2").style.color="red";
      }
 
 }
