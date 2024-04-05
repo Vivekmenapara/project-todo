@@ -1,0 +1,176 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: black;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li button {
+  display: block;
+  color: white;
+  text-align: center;
+  background-color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: white;
+  color: black;
+}
+li button:hover {
+  background-color: white;
+  color: black;
+}
+
+#firstcard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  display: none;
+  background-color: #4b4e5f;
+  color: white;
+}
+#secondcard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  display: none;
+  background-color: #4b4e5f;
+  color: white;
+}
+.card-format {
+  display: flex;
+  align-items: center;
+}
+.logout {
+  display: flex;
+  justify-content: end;
+}
+.second-card-format {
+  padding: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.sidedash {
+  list-style-type: none;
+  width: 20%;
+  background-color: #0a0606;
+  height: auto;
+  min-height: 88vh
+}
+
+#weather {
+  color: #e7e7e7;
+}
+
+#time {
+  color: #e7e7e7;
+}
+
+#image {
+  color: #e7e7e7;
+}
+
+
+.maindash {
+  display: flex;
+  gap: 20px;
+ 
+}
+
+.note{
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
+
+.anotherSide{
+  width: 100%;
+}
+
+table,tr,th,td{
+  border: 1px solid black;
+
+}
+
+#profile-card{
+  position: absolute;
+  z-index: 2;
+  background-color: white;
+  width: 40%;
+}
+
+#taskinput{
+  width: 100%;
+padding: 5px 10px;
+border-radius: 20px;
+}
+
+
+
+.addtaskbtn{
+  background-color: #11135e; 
+  border: none;
+  color: white;
+  padding: 3px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 20px;
+}
+#tablecontainer{
+  /* display:flex; */
+  align-items: center;
+  justify-content: center;
+  margin-left: 0%;
+  margin-top: 20px;
+  height: 60%;
+}
+
+#image_prop{
+  width: 120px;
+  height: 120px;
+}
+
+#image_prop img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+#labelcard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  display: flex;
+  background-color: #4b4e5f;
+  color: white;
+  margin-top: 35%;
+  justify-content: center;
+  padding: 20px;
+  flex-direction: column;
+  margin-right: 250px;
+  width: 300px;
+}
+

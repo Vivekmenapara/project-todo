@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="registration.css" />
+    <title>hmtl</title>
+  </head>
+  <body>
+    <div class="contactform">
+      <form  onsubmit="return false" class=""contactform1>
+        <h1>Registration</h1>
+        <label for="username">Username:</label><br />
+        <input type="text" id="username" name="username" /><br />
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" placeholder="Enter your email" /><br />
+        <label for="mnuber">Mobile Number:</label><br />
+        <input type="text" id="mobilenumber" /><br />
+        <label for="birthdate">DOB:</label><br />
+        <input type="date" id="dob" name="dateofbirth" /><br />
+        <label for="gender">Gender:</label><br />
+        <select name="gender" id="gender">
+          <option value="">Please select one…</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option></select
+        ><br />
+        <label for="pwd">Password:</label><br />
+        <input type="password" id="pwd" name="pwd" /><br />
+        <label for="pwd">Security quesion</label><br />
+        <input type="text" id="que" name="que" /><br />
+        <button type="submit" class="registerbtn" onclick="validateform()">
+          Register
+        </button>
+      
+        <div class="container signin">
+          <p>Already have an account? <a href="login.html">Sign in</a>.</p>
+        </div>
+        <p id="error"></p>
+      </form>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/forget.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="contactform1">
+        <form  onsubmit="return false" >
+          <h1>FORGET PASSWORD</h1>
+          
+          <label for="quesion">ENTER YOUR SECURITY WORD:</label><br />
+          <input type="text" id="security" placeholder="Enter your Security word" /><br />
+          <button type="submit" class="registerbtn" onclick="validdata()"> SUBMIT</button>
+        
+          <div class="Forget password">
+            <p>Back to login page click here  <a href="login.html">Click  Here</a>.</p>
+          </div>
+          <p id="error"></p>
+          <button type="submit" class="registerbtn" onclick="getpro()">
+            IF YOU ARE FORGOT SECURITY WORD THAN PRESS THIS BUTTON
+          </button>
+        </form>
+      </div>
+      <div class="contactform2">
+        <form  onsubmit="return false" >
+          <h1>FORGET PASSWORD</h1>
+          
+          <label for="quesion">Enter Your Email Id :</label><br />
+          <input type="text" id="emailid" placeholder="Enter your email" /><br />
+          <label for="quesion">Enter New Password:</label><br />
+          <input type="text" id="newpassword" placeholder="Enter new password" /><br />
+          <label for="quesion">REnter Password:</label><br />
+          <input type="text" id="repass" placeholder="REnter new password" /><br />
+          <button type="submit" class="registerbtn" onclick="changepassword()"> SUBMIT</button>
+        
+          <div class="Forget password">
+            <p>Back to login page click here  <a href="login.html">Click  Here</a>.</p>
+          </div>
+          <p id="error2"></p>
+        </form>
+      </div>
+</body>
+<script src="/script/forget.js"></script>
+</html>

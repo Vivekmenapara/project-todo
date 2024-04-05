@@ -1,0 +1,14 @@
+.contactform{
+
+    justify-content: center;
+    
+    display: flex;
+    
+    margin: 40px 50px;
+    
+
+    padding: 30px;
+    
+    background-color: rgb(208, 205, 248);
+    
+    }

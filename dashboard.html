@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vivek</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <ul class="sidenav">
+      <li>
+        <button type="submit" class="registerbtn" onclick="getprofile()">
+          Profile
+        </button>
+      </li>
+
+      <div class="logout">
+        <li>
+          <button type="submit" onclick="logout()">Logout</button>
+        </li>
+      </div>
+    </ul>
+
+    <div id="profile-card">
+      <!-- first card -->
+      <div id="firstcard">
+        <div class="card-format">
+          <label for="username">Username: </label>
+          <p id="username"></p>
+        </div>
+
+        <div class="card-format">
+          <label for="email">Email:</label>
+          <p id="email"></p>
+        </div>
+
+        <div class="card-format">
+          <label for="tel">Mobile Number:</label>
+          <p id="mnumber"></p>
+        </div>
+
+        <div class="card-format">
+          <label for="birthdate">DOB:</label>
+          <p id="birthdate"></p>
+        </div>
+        <div class="card-format">
+          <label for="gender">Gender:</label>
+          <p id="gender"></p>
+        </div>
+        <button type="submit" class="changebtn" onclick="toggleCards()">
+          change
+        </button>
+        <button type="submit" class="changebtn" onclick="toggle()">
+          cancel
+        </button>
+      </div>
+
+      <!-- second card -->
+
+      <div id="secondcard">
+        <div class="second-card-format">
+          <label for="username">Username: </label>
+          <input type="text" id="usernamechange" name="username" /><br />
+        </div>
+
+        <div class="second-card-format">
+          <label for="email">Email:</label>
+          <input type="text" id="emailchange" name="email" /><br />
+        </div>
+
+        <div class="second-card-format">
+          <label for="tel">Mobile Number:</label>
+          <input type="text" id="mnuberchange" /><br />
+        </div>
+
+        <div class="second-card-format">
+          <label for="birthdate">DOB:</label>
+          <input type="date" id="dobchange" name="birthdate" /><br />
+        </div>
+        <div class="second-card-format">
+          <label for="gender">Gender:</label>
+          <select name="gender" id="genderchange">
+            <option value="">Please select one…</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option></select
+          ><br />
+        </div>
+        <button type="submit" class="addbtn" onclick="change()">change</button>
+        <button type="submit" class="addbtn" onclick="toggleCards()">
+          back
+        </button>
+      </div>
+    </div>
+    <!-- main dash -->
+    <div class="maindash">
+      <div class="sidedash">
+        <div>
+          <p id="weather"></p>
+        </div>
+        <div id="image_prop">
+          <img id="image" alt="" />
+        </div>
+        <div>
+          <p id="time"></p>
+        </div>
+      </div>
+
+      <div class="anotherSide">
+        <div class="note">
+          <div id="buttonadd">
+            <input type="text" id="taskinput" name="taskinput" /><br />
+          </div>
+          <div id="buttonadd">
+            <button type="submit" class="addtaskbtn" onclick="addtasktable(event)">ADDTASK</button>
+          </div>
+          
+        </div>
+
+        <div id="tablecontainer">
+        
+        
+        </div>
+       
+      </div>
+      <div>
+        <div id="labelcard">
+          <div class="card-format1">
+            <label for="username">LAIST OF COMPLETE/PENDING TASK</label>
+          </div><br>
+  
+          <div class="card-format1">
+            <label for="email">COMPELETED TASK:</label>
+            <p id="completetask"></p>
+          </div>
+          <div class="card-format1">
+            <label for="email">PENDING TASK:</label>
+            <p id="pendingtask"></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>

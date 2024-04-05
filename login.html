@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="contactform">
+        <form  onsubmit="return false" class=""contactform1>
+          <h1>Login</h1>
+          
+          <label for="email">Email:</label><br />
+          <input type="text" id="email" placeholder="Enter your email" /><br />
+          <label for="pwd">Password:</label><br />
+          <input type="password" id="pwd" name="pwd" /><br />
+          <button type="submit" class="registerbtn" onclick="validdata()"> Login</button>
+        
+          <div class="Forget password">
+            <p>Forget password? <a href="forget.html">Click  Here</a>.</p>
+            <p>Creat Accuount? <a href="index.html">Click  Here</a>.</p>
+          </div>
+          <p id="error"></p>
+        </form>
+      </div>
+</body>
+<script src="login.js"></script>
+</html>
