@@ -6,10 +6,10 @@ function onReload() {
     window.location.href = "login.html";
   }
 }
-onReload();
-
+onReload()
 function logout() {
-  localStorage.clear()
+  localStorage.clear();
+  location.reload()
   window.location.href = "login.html";
 }
 
@@ -28,7 +28,7 @@ function getprofile() {
     document.getElementById("birthdate").innerHTML =
       localStorage.getItem("dob");
     document.getElementById("gender").innerHTML =
-      localStorage.getItem("gender");
+    localStorage.getItem("gender");
   }
 }
 
@@ -170,6 +170,7 @@ function saveTasks() {
 }
 window.onload = function () {
   loadTasks();
+  
 };
 
 function createtable(taskText, index) {
