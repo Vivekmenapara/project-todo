@@ -153,9 +153,17 @@ function loadTasks() {
   const storedckeckedstatus = JSON.parse(localStorage.getItem("checkedtask"));
   if (storedckeckedstatus) {
     checkedtask = storedckeckedstatus;
-    checkedtask.forEach((task, index) => {
-      getRow.parentElement.children[index].firstChild.firstChild.checked = true;
-      getRow.parentElement.children[index].lastChild.innerText = "completed";
+    storedTasks.forEach((task, index) => {
+   
+      checkedtask.forEach((task1,index1)=>{
+             
+        if(getRow.parentElement.children[index].children[1].firstChild.innerText==task1){
+          
+          getRow.parentElement.children[index].firstChild.firstChild.checked = true;
+          getRow.parentElement.children[index].lastChild.innerText = "completed";
+        }
+      })
+
     });
   }
   document.getElementById("completetask").innerHTML=checkedtask.length
@@ -283,17 +291,33 @@ function createtable(taskText, index) {
   saveTasks();
   });
 
-
+  
   checkbox.addEventListener("change", function () {
 
     const rowIndex = Array.from(row.parentElement.children).indexOf(row);
+      
+    // checkedtask[rowIndex]=tasks[rowIndex]
+    // if (!this.checked) {
+    //   checkedtask.splice(rowIndex, 1);
 
-    checkedtask[rowIndex] = tasks[rowIndex];
-    if (!this.checked) {
-      checkedtask.splice(rowIndex, 1);
-      status.textContent = "pending";
-    } else {
+    //   status.textContent = "pending";
+    // } else {
+    //   status.textContent = "completed";
+    // }
+    // const storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    // document.getElementById("completetask").innerHTML = checkedtask.length;
+    // document.getElementById("pendingtask").innerHTML = storedTasks.length - checkedtask.length;
+    if (this.checked) {
+      checkedtask.push(tasks[rowIndex])
+      
       status.textContent = "completed";
+    } else {
+      const checkedIndex=checkedtask.indexOf(tasks[rowIndex])
+      if(checkedIndex!=-1){
+
+        checkedtask.splice(checkedIndex, 1);
+      }
+      status.textContent = "pending";
     }
     const storedTasks = JSON.parse(localStorage.getItem("tasks"));
     document.getElementById("completetask").innerHTML = checkedtask.length;
@@ -302,8 +326,9 @@ function createtable(taskText, index) {
   });
 
   getRow = row;
-}
 
+
+}
 function addtasktable(e) {
   e.preventDefault();
   const taskInput = document.getElementById("taskinput").value;
