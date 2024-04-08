@@ -293,17 +293,6 @@ function createtable(taskText, index) {
   checkbox.addEventListener("change", function () {
     const rowIndex = Array.from(row.parentElement.children).indexOf(row);
 
-    // checkedtask[rowIndex]=tasks[rowIndex]
-    // if (!this.checked) {
-    //   checkedtask.splice(rowIndex, 1);
-
-    //   status.textContent = "pending";
-    // } else {
-    //   status.textContent = "completed";
-    // }
-    // const storedTasks = JSON.parse(localStorage.getItem("tasks"));
-    // document.getElementById("completetask").innerHTML = checkedtask.length;
-    // document.getElementById("pendingtask").innerHTML = storedTasks.length - checkedtask.length;
     if (this.checked) {
       checkedtask.push(tasks[rowIndex]);
 
@@ -319,6 +308,7 @@ function createtable(taskText, index) {
     document.getElementById("completetask").innerHTML = checkedtask.length;
     document.getElementById("pendingtask").innerHTML =
       storedTasks.length - checkedtask.length;
+      
     saveTasks();
   });
 
@@ -331,12 +321,12 @@ function addtasktable(e) {
   
     
     if (taskInput.trim() !== ""&& !tasks.includes(taskInput.trim())) {
-      console.log(taskInput.trim());
       tasks.push(taskInput);
       createtable(taskInput);
       const pendingCount = tasks.length - checkedtask.length;
       document.getElementById("pendingtask").innerHTML = pendingCount;
       saveTasks();
     }
+    document.getElementById("taskinput").value=""
   
 }
