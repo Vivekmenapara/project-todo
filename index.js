@@ -6,10 +6,11 @@ function onReload() {
     window.location.href = "login.html";
   }
 }
-onReload()
+
+onReload();
 function logout() {
   localStorage.clear();
-  location.reload()
+  location.reload();
   window.location.href = "login.html";
 }
 
@@ -28,7 +29,7 @@ function getprofile() {
     document.getElementById("birthdate").innerHTML =
       localStorage.getItem("dob");
     document.getElementById("gender").innerHTML =
-    localStorage.getItem("gender");
+      localStorage.getItem("gender");
   }
 }
 
@@ -92,6 +93,7 @@ const settime = () => {
   const currentDateTime = now.toLocaleString();
   document.getElementById("time").innerHTML = currentDateTime;
 };
+
 setInterval(settime, 1000);
 
 const getgif = async () => {
@@ -105,8 +107,8 @@ const getgif = async () => {
   document.getElementById("image").src =
     top_10_gifs[m]["media"][0]["nanogif"]["url"];
 };
-getgif()
-setInterval(getgif,4000)
+getgif();
+setInterval(getgif, 4000);
 
 let i = 0;
 const usertask = {};
@@ -154,31 +156,33 @@ function loadTasks() {
   if (storedckeckedstatus) {
     checkedtask = storedckeckedstatus;
     storedTasks.forEach((task, index) => {
-   
-      checkedtask.forEach((task1,index1)=>{
-             
-        if(getRow.parentElement.children[index].children[1].firstChild.innerText==task1){
-          
-          getRow.parentElement.children[index].firstChild.firstChild.checked = true;
-          getRow.parentElement.children[index].lastChild.innerText = "completed";
+      checkedtask.forEach((task1, index1) => {
+        if (
+          getRow.parentElement.children[index].children[1].firstChild
+            .innerText == task1
+        ) {
+          getRow.parentElement.children[
+            index
+          ].firstChild.firstChild.checked = true;
+          getRow.parentElement.children[index].lastChild.innerText =
+            "completed";
         }
-      })
-
+      });
     });
   }
-  document.getElementById("completetask").innerHTML=checkedtask.length
-  document.getElementById("pendingtask").innerHTML=storedTasks.length-checkedtask.length
-
+  document.getElementById("completetask").innerHTML = checkedtask.length;
+  document.getElementById("pendingtask").innerHTML =
+    storedTasks.length - checkedtask.length;
 }
 
 function saveTasks() {
+ 
   localStorage.setItem("tasks", JSON.stringify(tasks));
 
   localStorage.setItem("checkedtask", JSON.stringify(checkedtask));
 }
 window.onload = function () {
   loadTasks();
-  
 };
 
 function createtable(taskText, index) {
@@ -245,7 +249,7 @@ function createtable(taskText, index) {
 
         const rowIndex = Array.from(row.parentElement.children).indexOf(row);
         tasks[rowIndex] = textvalue;
-        
+
         if (
           row.parentElement.children[rowIndex].firstChild.firstChild.checked
         ) {
@@ -257,45 +261,38 @@ function createtable(taskText, index) {
   });
 
   button2.addEventListener("click", (event) => {
-  const row = event.target.parentElement.parentElement;
-  const rowIndex = Array.from(row.closest("tbody").children).indexOf(row);
-  const isChecked = row.children[0].querySelector("input[type=checkbox]").checked;
+    const row = event.target.parentElement.parentElement;
+    const rowIndex = Array.from(row.closest("tbody").children).indexOf(row);
+    const isChecked = row.children[0].querySelector(
+      "input[type=checkbox]"
+    ).checked;
 
- 
-  if (isChecked) {
-    const taskText = row.children[1].firstChild.innerText;
-    const checkedIndex = checkedtask.indexOf(taskText);
-    if (checkedIndex !== -1) {
-      checkedtask.splice(checkedIndex, 1);
+    if (isChecked) {
+      const taskText = row.children[1].firstChild.innerText;
+      const checkedIndex = checkedtask.indexOf(taskText);
+      if (checkedIndex !== -1) {
+        checkedtask.splice(checkedIndex, 1);
+      }
     }
-  }
 
+    tasks.splice(rowIndex, 1);
+    row.remove();
+    const completeCount = checkedtask.length;
+    const pendingCount = tasks.length - completeCount;
 
-  tasks.splice(rowIndex, 1);
-  row.remove();
-  const completeCount = checkedtask.length;
-  const pendingCount = tasks.length - completeCount;
+    document.getElementById("completetask").innerHTML = completeCount;
+    document.getElementById("pendingtask").innerHTML = pendingCount;
 
+    if (tasks.length === 0) {
+      document.getElementById("completetask").innerHTML = 0;
+    }
 
-  console.log("Complete Count:", completeCount);
-  console.log("Pending Count:", pendingCount);
-
-  document.getElementById("completetask").innerHTML = completeCount;
-  document.getElementById("pendingtask").innerHTML = pendingCount;
-
-  if (tasks.length === 0) {
-    document.getElementById("completetask").innerHTML = 0;
-  }
-
-
-  saveTasks();
+    saveTasks();
   });
 
-  
   checkbox.addEventListener("change", function () {
-
     const rowIndex = Array.from(row.parentElement.children).indexOf(row);
-      
+
     // checkedtask[rowIndex]=tasks[rowIndex]
     // if (!this.checked) {
     //   checkedtask.splice(rowIndex, 1);
@@ -308,35 +305,38 @@ function createtable(taskText, index) {
     // document.getElementById("completetask").innerHTML = checkedtask.length;
     // document.getElementById("pendingtask").innerHTML = storedTasks.length - checkedtask.length;
     if (this.checked) {
-      checkedtask.push(tasks[rowIndex])
-      
+      checkedtask.push(tasks[rowIndex]);
+
       status.textContent = "completed";
     } else {
-      const checkedIndex=checkedtask.indexOf(tasks[rowIndex])
-      if(checkedIndex!=-1){
-
+      const checkedIndex = checkedtask.indexOf(tasks[rowIndex]);
+      if (checkedIndex != -1) {
         checkedtask.splice(checkedIndex, 1);
       }
       status.textContent = "pending";
     }
     const storedTasks = JSON.parse(localStorage.getItem("tasks"));
     document.getElementById("completetask").innerHTML = checkedtask.length;
-    document.getElementById("pendingtask").innerHTML = storedTasks.length - checkedtask.length;
+    document.getElementById("pendingtask").innerHTML =
+      storedTasks.length - checkedtask.length;
     saveTasks();
   });
 
   getRow = row;
-
-
 }
+
 function addtasktable(e) {
   e.preventDefault();
   const taskInput = document.getElementById("taskinput").value;
-  if (taskInput.trim() !== "") {
-    tasks.push(taskInput);
-    createtable(taskInput);
-    const pendingCount = tasks.length - checkedtask.length;
-    document.getElementById("pendingtask").innerHTML = pendingCount;
-    saveTasks();
-  }
+  
+    
+    if (taskInput.trim() !== ""&& !tasks.includes(taskInput.trim())) {
+      console.log(taskInput.trim());
+      tasks.push(taskInput);
+      createtable(taskInput);
+      const pendingCount = tasks.length - checkedtask.length;
+      document.getElementById("pendingtask").innerHTML = pendingCount;
+      saveTasks();
+    }
+  
 }
