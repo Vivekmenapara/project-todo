@@ -13,7 +13,7 @@ function logout() {
   location.reload();
   window.location.href = "login.html";
 }
-
+       
 const firstCard = document.getElementById("firstcard");
 const secondCard = document.getElementById("secondcard");
 function getprofile() {
